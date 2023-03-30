@@ -23,7 +23,7 @@ strs[i] consists of only lowercase English letters.
 
 
   
-// program
+// method - 1
 
 class Solution {
     public String longestCommonPrefix(String[] strs) {
@@ -36,16 +36,36 @@ class Solution {
 
     public String getCommonPref(String str1, String str2){
         //int index = 0;
-        int ptr1 = 0, ptr2 = 0;
-        while(ptr1 < str1.length() && ptr2 < str2.length()){
-            if(str1.charAt(ptr1) != str2.charAt(ptr2)){
+        int index = 0;
+        while(index < str1.length() && index < str2.length()){
+            if(str1.charAt(index) != str2.charAt(index)){
                 //index = ptr1;
                 break;
             }
-            ptr1++;
-            ptr2++;
+            index++;
             //index++;
         }
-        return str1.substring(0, ptr1);
+        return str1.substring(0, index);
+    }
+}
+
+
+
+//optimized method
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+
+        Arrays.sort(strs);
+        String str1 = strs[0];
+        String str2 = strs[strs.length - 1];
+        int index = 0;
+        while(index < str1.length() && index < str2.length()){
+            if(str1.charAt(index) != str2.charAt(index)){
+                break;
+            }
+            index++;
+        }
+        return str1.substring(0, index);
     }
 }

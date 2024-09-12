@@ -1,1 +1,0 @@
-https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/description/
